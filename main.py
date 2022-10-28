@@ -34,19 +34,3 @@ grid_parameters = {"C": [0.001, 0.01, 0.1, 1, 10, 100, 1000, 10000],
     "degree": [2, 3, 4],
     "kernel": ["poly"]}
 train_grid_search(X_train, X_test, y_train, y_test, grid_parameters, "poly")
-
-# GridSearch on KNN (distance).
-grid_parameters = {"n_neighbors": [3, 4, 5, 6, 7, 8],
-    "weights": ["distance"],
-    "p": [1, 2, 3, 4, 5]}
-knn_train_grid_search(X_train, X_test, y_train, y_test, grid_parameters, "knn_distance")
-
-# GridSearch on KNN (uniform).
-grid_parameters = {"n_neighbors": [3, 4, 5, 6, 7, 8],
-    "weights": ["uniform"],
-    "p": [1, 2, 3, 4, 5]}
-knn_train_grid_search(X_train, X_test, y_train, y_test, grid_parameters, "knn_uniform")
-
-# GridSearch on NCC.
-grid_parameters = {"metric": ["cityblock", "cosine", "euclidean"]}
-ncc_train_grid_search(X_train, X_test, y_train, y_test, grid_parameters, "ncc")

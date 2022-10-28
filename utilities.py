@@ -378,31 +378,3 @@ def plot_grid_search(cv_results, group_by_parameter, x_axis_parameter, folder_na
         plt.close(figure)
         
     return groups
-
-def plot_grid_search_single(cv_results, parameter, folder_name): 
-    """
-    Plots the grid search results of train and test samples
-    :param cv_results: The cv results.
-    :param parameter: The parameter that will be used for grouping.
-    :param folder_name: The folder name.
-    """
-    labels = list(map(lambda item: item[parameter], cv_results["params"]))
-    
-    x = np.arange(len(labels))
-    width = 0.35
-    
-    figure, ax = plt.subplots()
-    rects1 = ax.bar(x - width / 2, cv_results["mean_test_score"], width, label = "Testing", tick_label = "")
-    rects2 = ax.bar(x + width / 2, cv_results["mean_train_score"], width, label = "Training", tick_label = "")
-    
-    ax.set_ylabel("GridSearch Score")
-    ax.set_title("Results")
-    ax.legend()
-    
-    ax.bar_label(rects1, padding = 3)
-    ax.bar_label(rects2, padding = 3)
-    
-    figure.tight_layout()
-    
-    plt.savefig(f"figures/{folder_name}/ncc.png")
-    plt.close(figure)
